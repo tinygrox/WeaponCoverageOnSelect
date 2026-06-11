@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>WeaponCoverageOnSelect</AssemblyName>
+    <RootNamespace>WeaponCoverageOnSelect</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU</Platforms>
+    <GameRootPath>path/to/the/game</GameRootPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Cosmoteer">
+      <HintPath>$(GameRootPath)\Bin\Cosmoteer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HalflingCore">
+      <HintPath>$(GameRootPath)\Bin\HalflingCore.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krafs.Publicizer" Version="2.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony.Ref" Version="2.4.2"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Publicize Include="Cosmoteer" IncludeCompilerGeneratedMembers="false"/>
+    <Publicize Include="HalflingCore" IncludeCompilerGeneratedMembers="false"/>
+  </ItemGroup>
+</Project>
